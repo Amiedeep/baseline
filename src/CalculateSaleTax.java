@@ -23,7 +23,7 @@ public class CalculateSaleTax {
         calculateSaleTax.takeUserInput();
         calculateSaleTax.calculateBasicSalesTax();
     }
-    
+
     private void initializeMedicalProducts() {
         medicalProducts = new ArrayList<>();
         medicalProducts.add("headache pills");
@@ -49,6 +49,20 @@ public class CalculateSaleTax {
 
     private boolean isExemptApplicable(String item) {
 
+        for (String book : books) {
+            if(item.indexOf(book) != -1)
+                return true;
+        }
+
+        for (String medicalProduct : medicalProducts) {
+            if(item.indexOf(medicalProduct) != -1)
+                return true;
+        }
+
+        for (String foodItem : foodItems) {
+            if(item.indexOf(foodItem) != -1)
+                return true;
+        }
         return false;
     }
 

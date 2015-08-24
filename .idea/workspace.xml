@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="38c57ce1-074f-4287-b6e6-1429852db18b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateSaleTax.java" afterPath="$PROJECT_DIR$/src/CalculateSaleTax.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="baseline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="CalculateSaleTax.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CalculateSaleTax.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48324743">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.4201031">
+              <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -370,8 +369,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CalculateSaleTax.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48324743">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.4201031">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
