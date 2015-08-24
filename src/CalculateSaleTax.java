@@ -46,7 +46,8 @@ public class CalculateSaleTax {
             Double price = parsePrize(item);
             System.out.println(price);
             if(!isExemptApplicable(item)) {
-
+                Double newPrice = price + price/10;
+                item = item.replace(""+price, ""+newPrice);
             }
         }
     }
