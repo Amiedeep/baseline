@@ -38,7 +38,6 @@ public class CalculateSaleTax {
                 item = item.replace(""+price, ""+newPrice);
                 items.add(item);
             }
-            System.out.println(item);
         }
     }
 
@@ -66,15 +65,28 @@ public class CalculateSaleTax {
     private void calculateBasicSalesTax() {
         for(String item : items) {
             Double price = parsePrize(item);
+            items.remove(item);
+            Double newPrice = price;
             if(!isExemptApplicable(item)) {
-                items.remove(item);
-                Double newPrice = price + price/10;
-                salesTax = salesTax+ price/10;
-                item = item.replace(""+price, ""+newPrice);
-                items.add(item);
+                Double tax = roundTaxValue(price / 10);
+                newPrice = newPrice+ tax;
+                salesTax = salesTax+ tax;
             }
-            System.out.println(item);
+            if(isImported(item)) {
+                Double tax = roundTaxValue(price / 20);
+                newPrice = newPrice+ tax;
+                salesTax = salesTax+ tax;
+                item = item.replace(""+price, ""+newPrice);
+            }
+            items.add(item);
         }
+    }
+
+    private Double roundTaxValue(double value) {
+        long factor = (long) Math.pow(10, 2);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
     private Double parsePrize(String item) {
