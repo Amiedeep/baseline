@@ -24,6 +24,7 @@ public class CalculateSaleTax {
         CalculateSaleTax calculateSaleTax = new CalculateSaleTax();
         calculateSaleTax.takeUserInput();
         calculateSaleTax.calculateBasicSalesTax();
+        System.out.println(calculateSaleTax.salesTax);
     }
 
 //    private void calculateImportDuty() {
