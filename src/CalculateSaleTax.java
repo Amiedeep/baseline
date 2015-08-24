@@ -43,8 +43,17 @@ public class CalculateSaleTax {
 
     private void calculateBasicSalesTax() {
         for(String item : items) {
-            isExemptApplicable(item);
+            Double price = parsePrize(item);
+            System.out.println(price);
+            if(!isExemptApplicable(item)) {
+
+            }
         }
+    }
+
+    private Double parsePrize(String item) {
+        int indexOfAt = item.lastIndexOf(" at ");
+        return Double.parseDouble(item.substring(indexOfAt+4, item.length()));
     }
 
     private boolean isExemptApplicable(String item) {
