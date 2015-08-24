@@ -18,18 +18,14 @@ public class CalculateSaleTax {
     }
 
     private void takeUserInput() {
-
-//        String input="";
-//        while(true) {
-//
-//        }
-//        for (int i = 0; i < numberOfItems ; i++) {
-//            items.add(sc.nextLine());
-//        }
-//
-//
-//        for (int i = 0; i < numberOfItems; i++) {
-//            System.out.println(items.get(i));
-//        }
+        System.out.println("Enter input");
+        String input="";
+        while(true) {
+            input = sc.nextLine();
+            if(input.equals("")) {
+                break;
+            }
+            items.add(input);
+        }
     }
 }
