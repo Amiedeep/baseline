@@ -25,24 +25,10 @@ public class CalculateSaleTax {
     public static void main(String[] args) {
         CalculateSaleTax calculateSaleTax = new CalculateSaleTax();
         calculateSaleTax.takeUserInput();
-        calculateSaleTax.calculateBasicSalesTax();
+        calculateSaleTax.calculateSalesTax();
         System.out.println("Sales Taxes: " + calculateSaleTax.salesTax);
         System.out.println("Total: "+calculateSaleTax.roundTaxValue(calculateSaleTax.total));
     }
-
-//    private void calculateImportDuty() {
-//        for(String item : items) {
-//            Double price = parsePrize(item);
-//            System.out.println(price);
-//            if(isImported(item)) {
-//                items.remove(item);
-//                Double newPrice = price + price/20;
-//                salesTax = salesTax+ price/20;
-//                item = item.replace(""+price, ""+newPrice);
-//                items.add(item);
-//            }
-//        }
-//    }
 
     private boolean isImported(String item) {
         return item.indexOf("imported") != -1;
@@ -65,11 +51,9 @@ public class CalculateSaleTax {
     }
 
 
-    private void calculateBasicSalesTax() {
+    private void calculateSalesTax() {
         for(String item : items) {
             Double price = parsePrize(item);
-//            int index = items.indexOf(item);
-//            items.remove(item);
             Double newPrice = price;
             total += newPrice;
             if(!isExemptApplicable(item)) {
@@ -88,7 +72,6 @@ public class CalculateSaleTax {
             }
             item = item.replace(""+price, ""+newPrice);
             System.out.println(item);
-//            items.add(index,item);
         }
     }
 
