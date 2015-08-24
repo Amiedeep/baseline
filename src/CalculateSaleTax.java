@@ -10,9 +10,11 @@ public class CalculateSaleTax {
     private ArrayList<String> foodItems;
     private ArrayList<String> books;
     private ArrayList<String> medicalProducts;
+    private double salesTax;
     public CalculateSaleTax() {
         sc = new Scanner(System.in);
         items = new ArrayList<>();
+        salesTax = 0.0;
         initializeBooks();
         initializeFoodItems();
         initializeMedicalProducts();
@@ -22,6 +24,26 @@ public class CalculateSaleTax {
         CalculateSaleTax calculateSaleTax = new CalculateSaleTax();
         calculateSaleTax.takeUserInput();
         calculateSaleTax.calculateBasicSalesTax();
+        calculateSaleTax.calculateImportDuty();
+    }
+
+    private void calculateImportDuty() {
+        for(String item : items) {
+            Double price = parsePrize(item);
+            System.out.println(price);
+            if(isImported(item)) {
+                items.remove(item);
+                Double newPrice = price + price/20;
+                salesTax = salesTax+ price/20;
+                item = item.replace(""+price, ""+newPrice);
+                items.add(item);
+            }
+            System.out.println(item);
+        }
+    }
+
+    private boolean isImported(String item) {
+        return item.indexOf("imported") != -1;
     }
 
     private void initializeMedicalProducts() {
@@ -44,11 +66,14 @@ public class CalculateSaleTax {
     private void calculateBasicSalesTax() {
         for(String item : items) {
             Double price = parsePrize(item);
-            System.out.println(price);
             if(!isExemptApplicable(item)) {
+                items.remove(item);
                 Double newPrice = price + price/10;
+                salesTax = salesTax+ price/10;
                 item = item.replace(""+price, ""+newPrice);
+                items.add(item);
             }
+            System.out.println(item);
         }
     }
 
