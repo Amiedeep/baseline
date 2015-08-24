@@ -7,9 +7,15 @@ import java.util.Scanner;
 public class CalculateSaleTax {
     private Scanner sc;
     private ArrayList<String> items;
+    private ArrayList<String> foodItems;
+    private ArrayList<String> books;
+    private ArrayList<String> medicalProducts;
     public CalculateSaleTax() {
         sc = new Scanner(System.in);
         items = new ArrayList<>();
+        initializeBooks();
+        initializeFoodItems();
+        initializeMedicalProducts();
     }
 
     public static void main(String[] args) {
@@ -17,6 +23,23 @@ public class CalculateSaleTax {
         calculateSaleTax.takeUserInput();
         calculateSaleTax.calculateBasicSalesTax();
     }
+    
+    private void initializeMedicalProducts() {
+        medicalProducts = new ArrayList<>();
+        medicalProducts.add("headache pills");
+    }
+
+    private void initializeFoodItems() {
+        foodItems = new ArrayList<>();
+        foodItems.add("chocolate bar");
+        foodItems.add("chocolates");
+    }
+
+    private void initializeBooks() {
+        books = new ArrayList<>();
+        books.add("book");
+    }
+
 
     private void calculateBasicSalesTax() {
         for(String item : items) {
