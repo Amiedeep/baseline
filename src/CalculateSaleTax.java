@@ -24,22 +24,21 @@ public class CalculateSaleTax {
         CalculateSaleTax calculateSaleTax = new CalculateSaleTax();
         calculateSaleTax.takeUserInput();
         calculateSaleTax.calculateBasicSalesTax();
-        calculateSaleTax.calculateImportDuty();
     }
 
-    private void calculateImportDuty() {
-        for(String item : items) {
-            Double price = parsePrize(item);
-            System.out.println(price);
-            if(isImported(item)) {
-                items.remove(item);
-                Double newPrice = price + price/20;
-                salesTax = salesTax+ price/20;
-                item = item.replace(""+price, ""+newPrice);
-                items.add(item);
-            }
-        }
-    }
+//    private void calculateImportDuty() {
+//        for(String item : items) {
+//            Double price = parsePrize(item);
+//            System.out.println(price);
+//            if(isImported(item)) {
+//                items.remove(item);
+//                Double newPrice = price + price/20;
+//                salesTax = salesTax+ price/20;
+//                item = item.replace(""+price, ""+newPrice);
+//                items.add(item);
+//            }
+//        }
+//    }
 
     private boolean isImported(String item) {
         return item.indexOf("imported") != -1;
@@ -65,20 +64,25 @@ public class CalculateSaleTax {
     private void calculateBasicSalesTax() {
         for(String item : items) {
             Double price = parsePrize(item);
-            items.remove(item);
+//            int index = items.indexOf(item);
+//            items.remove(item);
             Double newPrice = price;
+
             if(!isExemptApplicable(item)) {
                 Double tax = roundTaxValue(price / 10);
-                newPrice = newPrice+ tax;
+                newPrice += tax;
+                newPrice = roundTaxValue(newPrice);
                 salesTax = salesTax+ tax;
             }
+
             if(isImported(item)) {
                 Double tax = roundTaxValue(price / 20);
                 newPrice = newPrice+ tax;
                 salesTax = salesTax+ tax;
-                item = item.replace(""+price, ""+newPrice);
             }
-            items.add(item);
+            item = item.replace(""+price, ""+newPrice);
+            System.out.println(item);
+//            items.add(index,item);
         }
     }
 
