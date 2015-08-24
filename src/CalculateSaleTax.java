@@ -15,6 +15,18 @@ public class CalculateSaleTax {
     public static void main(String[] args) {
         CalculateSaleTax calculateSaleTax = new CalculateSaleTax();
         calculateSaleTax.takeUserInput();
+        calculateSaleTax.calculateBasicSalesTax();
+    }
+
+    private void calculateBasicSalesTax() {
+        for(String item : items) {
+            isExemptApplicable(item);
+        }
+    }
+
+    private boolean isExemptApplicable(String item) {
+
+        return false;
     }
 
     private void takeUserInput() {
